@@ -7,9 +7,8 @@ def extract_filenames(input_file):
     filenames = []
     with open(input_file, 'r') as f:
         lines = f.readlines()
-        # Iterate through every three lines
         for i in range(0, len(lines), 3):
-            filenames.append(lines[i].strip())  # First line contains the filename
+            filenames.append(lines[i].strip())
     return filenames
 
 # Function to copy files to a new directory
@@ -29,16 +28,13 @@ def copy_files(source_dir, dest_dir, filenames):
 
 if __name__ == "__main__":
     # Input file containing filenames and uORF data
-    input_file = "/ocean/projects/bio200049p/zjiang2/Files/spring25/conservedlongSNURF.txt"  # Replace with your input file name
+    input_file = "/ocean/projects/bio200049p/zjiang2/Files/spring25/conservedlongSNURF.txt" 
 
     # Source directory containing the files
-    source_dir = "/ocean/projects/bio200049p/zjiang2/Files/spring24/nodashfasta"  # Replace with your source directory
+    source_dir = "/ocean/projects/bio200049p/zjiang2/Files/spring24/nodashfasta"
 
     # Destination directory to copy files to
-    dest_dir = "/ocean/projects/bio200049p/zjiang2/Files/spring24/SNURF-highconserve"  # Replace with your destination directory
+    dest_dir = "/ocean/projects/bio200049p/zjiang2/Files/spring24/SNURF-highconserve"
 
-    # Extract filenames from the input file
     filenames = extract_filenames(input_file)
-
-    # Copy files to the destination directory
     copy_files(source_dir, dest_dir, filenames)
