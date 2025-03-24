@@ -4,7 +4,6 @@ import shutil
 def validate_and_process_file(input_file, input_dir, output_dir):
     stop_codons = {"TAA", "TAG", "TGA"}
 
-    # Function to check if a sequence is a valid uORF
     def is_valid_uorf(sequence, max_length):
         if not sequence.startswith("ATG"):
             return False
@@ -48,7 +47,6 @@ def validate_and_process_file(input_file, input_dir, output_dir):
         if key not in unique_data:
             unique_data[key] = transcript_name
 
-    # Write the unique entries back to a new file
     unique_output_file = "unique_transcripts.txt"
     with open(unique_output_file, 'w') as file:
         for (short_uorf, long_uorf), transcript_name in unique_data.items():
