@@ -1,11 +1,7 @@
 import os
 
 def remove_last_two_columns_and_combine(input_dir, output_file):
-    """
-    Reads all files in `input_dir`. For each line (with 6 columns),
-    removes the last two columns and appends the resulting
-    4-column line into `output_file`.
-    """
+    # Reads all files in `input_dir`. For each line (with 6 columns), removes the last two columns and appends the resulting 4-column line into `output_file`.
     with open(output_file, "w") as out_f:
         for file_name in os.listdir(input_dir):
             file_path = os.path.join(input_dir, file_name)
