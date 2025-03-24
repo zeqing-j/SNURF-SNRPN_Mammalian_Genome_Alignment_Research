@@ -15,7 +15,6 @@ def validate_and_process_file(input_file, input_dir, output_dir):
                 return True
         return False
 
-    # Validate file content
     with open(input_file, 'r') as file:
         lines = file.readlines()
 
@@ -55,7 +54,6 @@ def validate_and_process_file(input_file, input_dir, output_dir):
         for (short_uorf, long_uorf), transcript_name in unique_data.items():
             file.write(f"{transcript_name}\n{short_uorf}\n{long_uorf}\n")
 
-    # Copy files to output directory
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
@@ -64,11 +62,9 @@ def validate_and_process_file(input_file, input_dir, output_dir):
         if os.path.exists(input_path):
             shutil.copy(input_path, output_dir)
 
-# Define paths
-input_file = "/ocean/projects/bio200049p/zjiang2/Files/spring25/SNURFinfo.txt"  # Replace with your text file path
-input_dir = "/ocean/projects/bio200049p/zjiang2/Files/spring25/SNURF-like"  # Replace with your input directory path
-output_dir = "/ocean/projects/bio200049p/zjiang2/Files/spring25/SNURF-unique"  # Replace with your output directory path
 
-# Run the script
+input_file = "/ocean/projects/bio200049p/zjiang2/Files/spring25/SNURFinfo.txt" 
+input_dir = "/ocean/projects/bio200049p/zjiang2/Files/spring25/SNURF-like" 
+output_dir = "/ocean/projects/bio200049p/zjiang2/Files/spring25/SNURF-unique"
 validate_and_process_file(input_file, input_dir, output_dir)
 
