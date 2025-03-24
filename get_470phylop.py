@@ -35,8 +35,8 @@ def process_bed_files(input_dir, output_dir, bigwig_file):
                         print(f"Error processing {filename}: {e}")
 
 if __name__ == "__main__":
-    input_directory = "/ocean/projects/bio200049p/zjiang2/Files/spring24/5UTRbed"  # Change to the actual input directory
-    output_directory = "/ocean/projects/bio200049p/zjiang2/Files/spring25/5UTRphylop470way"  # Change to the actual output directory
-    bigwig_file = "/ocean/projects/bio200049p/zjiang2/Files/spring25/hg38.phyloP470way.bw"  # Path to the bigWig file
+    input_directory = "/ocean/projects/bio200049p/zjiang2/Files/spring24/5UTRbed"  
+    output_directory = "/ocean/projects/bio200049p/zjiang2/Files/spring25/5UTRphylop470way"  
+    bigwig_file = "/ocean/projects/bio200049p/zjiang2/Files/spring25/hg38.phyloP470way.bw" 
     
     process_bed_files(input_directory, output_directory, bigwig_file)
