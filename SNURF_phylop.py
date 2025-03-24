@@ -1,7 +1,6 @@
 #to find the seqeunce with SNURF structure in the phylop excel file to see if there are patterns
 import pandas as pd
 
-# List of names to search
 names_to_search = [
     "ENST00000263710.8.txt", "ENST00000360273.7.txt", "ENST00000382150.8.txt", "ENST00000447325.5.txt",
     "ENST00000529611.5.txt", "ENST00000274811.9.txt", "ENST00000367434.5.txt", "ENST00000389858.4.txt",
@@ -14,24 +13,18 @@ names_to_search = [
     "ENST00000525503.5.txt", "ENST00000649271.1.txt"
 ]
 
-# Load the Excel file
-input_file = r"C:\Users\zeqin\Downloads\phylop_conservation.xlsx"  # Replace with your actual file name
+input_file = r"C:\Users\zeqin\Downloads\phylop_conservation.xlsx" 
 df = pd.read_excel(input_file)
 
-# Filter rows where the first column matches the names to search
 filtered_rows = df[df.iloc[:, 0].isin(names_to_search)]
 
-# Select specific columns to display
 columns_to_print = ["5' UTR Name", "ORF Type", "ORF Sequence", "Total Percentage", "Phylop Difference"]
 
-# Display the relevant rows with selected columns
 if not filtered_rows.empty:
     result = filtered_rows[columns_to_print]
     print(result)
 else:
     print("No matching names found.")
 
-# Optionally, save the filtered results to a new Excel file
 output_file = r"C:\Users\zeqin\Downloads\filtered_results.xlsx"
 result.to_excel(output_file, index=False)
-print(f"Filtered data saved to {output_file}")
