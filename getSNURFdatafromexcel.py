@@ -2,7 +2,6 @@
 import pandas as pd
 
 def extract_uorf_data(transcript_file, excel_file, output_file):
-    # Load the Excel file
     df = pd.read_excel(excel_file)
     with open(transcript_file, 'r') as tf, open(output_file, 'w') as of:
         lines = tf.readlines()
