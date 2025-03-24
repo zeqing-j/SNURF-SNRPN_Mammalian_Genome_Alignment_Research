@@ -2,7 +2,7 @@ import os
 from collections import defaultdict
 
 def calculate_conservation_rate(dna_sequences):
-    "Calculate the conservation rate for the first two nucleotides and the third nucleotide of each codon."
+    # Calculate the conservation rate for the first two nucleotides and the third nucleotide of each codon.
     num_sequences = len(dna_sequences)
     codon_conservation_first_two = []
     codon_conservation_third = []
