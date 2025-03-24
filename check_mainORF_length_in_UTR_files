@@ -1,14 +1,14 @@
 import os
 
 def find_last_atg(sequence):
-    """Finds the last occurrence of 'ATG' and returns the substring length from 'A' to the end."""
-    last_index = sequence.rfind('ATG')  # Find last ATG
+    #Finds the last occurrence of 'ATG' and returns the substring length from 'A' to the end.
+    last_index = sequence.rfind('ATG') 
     if last_index != -1:
-        return len(sequence) - last_index  # Length from 'A' to end
-    return None  # No ATG found
+        return len(sequence) - last_index  
+    return None 
 
 def process_fasta_files(directory, output_file):
-    """Processes all FASTA files in a directory and records invalid lengths."""
+    #Processes all FASTA files in a directory and records invalid lengths.
     invalid_entries = []
     
     for filename in os.listdir(directory):
@@ -16,18 +16,16 @@ def process_fasta_files(directory, output_file):
             file_path = os.path.join(directory, filename)
             with open(file_path, 'r') as f:
                 lines = f.readlines()
-                if len(lines) > 1:  # Ensure there is a second line
+                if len(lines) > 1:  
                     sequence = lines[1].strip()
                     length = find_last_atg(sequence)
-                    if length is not None and length not in {25, 40}:  # Check validity
+                    if length is not None and length not in {25, 40}:  
                         invalid_entries.append(f"{filename} {length}")
     
-    # Write invalid entries to the output file
     if invalid_entries:
         with open(output_file, 'w') as out_f:
             out_f.write("\n".join(invalid_entries) + "\n")
 
-# Example usage:
-directory = "/ocean/projects/bio200049p/zjiang2/Files/spring24/nodashfasta"  # Replace with your directory
+directory = "/ocean/projects/bio200049p/zjiang2/Files/spring24/nodashfasta" 
 output_file = "/ocean/projects/bio200049p/zjiang2/Files/spring25/invalid_mainORFlengths.txt"
 process_fasta_files(directory, output_file)
